@@ -1,5 +1,5 @@
 export const helloService = {
-    async getHelloWorld() {
+    getHelloWorld() {
       return 'Hello World!';
     },
   };
