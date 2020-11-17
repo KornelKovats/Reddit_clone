@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+mongoose.connect('mongodb://localhost/redditclone', { useNewUrlParser: true,  useUnifiedTopology: true,   });
+
 const stringRequired = {
   type: String,
   required: true,
