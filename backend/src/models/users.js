@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 
+mongoose.connect('mongodb://localhost/redditclone', { useNewUrlParser: true, useUnifiedTopology: true, });
 
 let userSchema = new mongoose.Schema({
   username: {
@@ -11,6 +12,6 @@ let userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-})
+});
 
 module.exports = mongoose.model('Users', userSchema)
