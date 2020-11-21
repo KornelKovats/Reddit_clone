@@ -19,12 +19,10 @@ export const loginService = {
       throw inputError;
     }
     const userData = await userRepo.getUser(username);
-    console.log(userData);
-    /*const token = jwt.sign({
-      id: userData.results[0].id,
-      kingdomId: userData.results[0].kingdomId,
-    }, config.secret || 'somesecret');
-    */
-    return userData;
+    if(password !== userData.password){
+        throw { message: 'Username or password is incorrect', status: 400 };
+    }
+    const token = jwt.sign({id: userData._id }, 'mysecret');
+    return token;
   },
 };
