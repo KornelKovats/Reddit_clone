@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
+const Schema = mongoose.Schema;
+import userSchema from './users';
+import commentSchema from './comments';
 
-mongoose.connect('mongodb://localhost/redditclone', { useNewUrlParser: true, useUnifiedTopology: true, });
 
 const stringRequired = {
   type: String,
@@ -9,13 +11,19 @@ const stringRequired = {
 
 let postsSchema = new mongoose.Schema({
   title: stringRequired,
-  author: stringRequired,
+  text: stringRequired,
+  author: {
+    id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    },
+    username: String,
+  },
   createdAt: {
     type: Date,
-    required: true,
+    default: Date.now,
   },
-  comments: [],
-  votes: [],
+  comments: [{type: mongoose.Schema.Types.ObjectId, ref: "Comment"}],
 });
 
 module.exports = mongoose.model("Posts", postsSchema);
