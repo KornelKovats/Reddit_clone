@@ -1,0 +1,28 @@
+* {
+    margin: 0px;
+  }
+  
+  .header {
+    height: 60px;
+    background: rgb(89, 147, 255);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    font-size: calc(10px + 2vmin);
+    justify-content: space-between;
+    column-gap: 20px;
+  }
+  
+  .headerMain, .header-tribes {
+    position: static;
+    left: 10px;
+    font-size: calc(12px + 2vmin);
+    color: white;
+  }
+  
+  .header-tribes, .headerMain, .link {
+    margin: auto 2vw;
+  }
