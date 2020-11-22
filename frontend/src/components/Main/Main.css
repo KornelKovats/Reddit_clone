@@ -1,0 +1,13 @@
+.spaceimage{
+    background-image: url(../../assets/space.jpg);
+    height: 300px;
+    color: white;
+}
+.body{
+    display: flex;
+    flex-flow: column;
+}
+h1{
+    align-items: center;
+    justify-content: center;
+}

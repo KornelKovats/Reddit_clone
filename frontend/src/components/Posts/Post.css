@@ -1,0 +1,12 @@
+.postMain{
+    display: flex;
+    flex-flow: column;
+    width: 300px;
+    height: 100px;
+    background-color: '#9c9c9c';
+}
+.firstRow{
+    display: flex;
+    flex-flow: row;
+    flex-wrap: row;
+}
