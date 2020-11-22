@@ -1,14 +1,14 @@
-import postsSchema from '../models/posts';
-import userSchema from '../models/users'; 
-import commentSchema from '../models/comments';
-
+import { postsService } from '../services/postsService';
 
 export const postsController = {
   async get(req, res, next) {
     try {
-      let post = await postsSchema.findOne({_id: "5fb6c8e2dfef6a5186b01212"});
+      
+      
+      const posts = await postsService.getAllPost();
 
-      res.json(post);
+      
+      res.json(posts);
     } catch (error) {
         next(error);
     }
