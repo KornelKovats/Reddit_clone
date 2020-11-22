@@ -22,25 +22,34 @@ const useStyles = makeStyles({
     marginBottom: 12,
   },
 });
-function Post() {
+function Post(props) {
     const classes = useStyles();
     const bull = <span className={classes.bullet}>•</span>;
   return (
     <Card>
-      <div className="postMain">
-        <div className="firstRow">
-          <div className="titleContainer">
-            <h2>ELSO</h2>
-          </div>
-          <div className="hourContainer">
-            <h2>HOUR</h2>
-          </div>
-        </div>
-
-        <div className="secondRow">
-          <h2>TEXT</h2>
-        </div>
-      </div>
+      <CardContent>
+          
+        <Typography className={classes.title} color="textSecondary" gutterBottom>
+            {new Intl.DateTimeFormat('en-EU', {
+              hour: '2-digit',
+              minute: '2-digit',
+              hour12: false,
+            }).format(Date.parse(props.item.createdAt))}
+        </Typography>
+        <Typography variant="h5" component="h2">
+          {props.item.title}
+        </Typography>
+        <Typography className={classes.pos} color="textSecondary">
+        {props.item.author.username}
+        </Typography>
+        <Typography variant="body2" component="p">
+        {props.item.text}
+        </Typography>
+        <Typography className={classes.pos} color="textSecondary">
+        Comments:  
+        {props.item.comments.length}
+        </Typography>
+      </CardContent>
     </Card>
   );
 }
